@@ -5,11 +5,13 @@ import br.com.avenuecode.grupo5.timeKeeper.daos.UsuarioDao;
 import br.com.avenuecode.grupo5.timeKeeper.entities.Ponto;
 import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * Created by huijari on 6/10/17

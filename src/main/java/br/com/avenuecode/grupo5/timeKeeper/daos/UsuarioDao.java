@@ -1,12 +1,10 @@
 package br.com.avenuecode.grupo5.timeKeeper.daos;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 import org.springframework.stereotype.Repository;
 
-import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
-
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository

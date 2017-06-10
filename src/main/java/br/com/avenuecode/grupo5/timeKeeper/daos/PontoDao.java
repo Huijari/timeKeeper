@@ -1,7 +1,6 @@
 package br.com.avenuecode.grupo5.timeKeeper.daos;
 
 import br.com.avenuecode.grupo5.timeKeeper.entities.Ponto;
-import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
