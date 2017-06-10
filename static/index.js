@@ -34,8 +34,6 @@ function mainController($interval, $http) {
 
   $interval(() => vm.data = new Date(), 500)
 
-  vm.login('acesar')
-
   return vm
 }
 
