@@ -13,6 +13,9 @@ public class Usuario {
 		BASIC, MANAGER;
 	};
 
+	public enum Cargo {
+		ASSISTENTE, ANALISTA, GERENTE, DIRETOR;
+	};
 	@Id
 	@GeneratedValue
 	private long id;
@@ -23,6 +26,10 @@ public class Usuario {
 
 	private Profile profile;
 
+	private int jornadaDiaria;
+
+	private Cargo cargo;
+
 	@OneToMany
 	private List<Ponto> pontos;
 
@@ -30,11 +37,21 @@ public class Usuario {
 
 	}
 
-	public Usuario(long id, String login, String senha, Profile profile) {
+	public Usuario(long id, String login, String senha, Profile profile, int jornadaDiaria, Cargo cargo) {
 		this.id = id;
 		this.login = login;
 		this.senha = senha;
 		this.profile = profile;
+		this.jornadaDiaria = jornadaDiaria;
+		this.cargo = cargo;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 	public long getId() {
@@ -44,6 +61,15 @@ public class Usuario {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public int getJornadaDiaria() {
+		return jornadaDiaria;
+	}
+
+	public void setJornadaDiaria(int jornadaDiaria) {
+		this.jornadaDiaria = jornadaDiaria;
+	}
+
 	public String getLogin() {
 		return login;
 	}
