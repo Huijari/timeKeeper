@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css">
 </head>
@@ -14,14 +15,43 @@
           <label class="f6 b db mb2" for="login">
             Nome de usuário
           </label>
-          <input id="login" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+          <input id="login" ng-model="login"
+            class="input-reset ba b--black-20 pa2 mb2 db w-100">
           <small class="f6 black-60 db mb2">Seu nome de usuário na rede</small>
         </div>
-        <button class="mt2 f6 link dim ba b--black-20 ph3 pv2 mb2 dib black bg-white">Login</button>
+        <button
+          ng-click="vm.login(login)"
+          class="mt2 f6 link dim ba b--black-20 ph3 pv2 mb2 dib black bg-white">
+          Login
+        </button>
       </form>
     </div>
     <div ng-hide="vm.usuario === null">
-      logado
+      <b ng-bind="vm.usuario.login"></b>
+      <button
+        ng-click="vm.logout()"
+        class="fr mt2 f6 link dim ba b--black-20 ph3 pv2 mb2 dib black bg-white">
+        Logout
+      </button>
+      <h2 class="mt4">
+        <span ng-bind="vm.data | date:'shortTime'"></span>
+        <button
+          ng-click="vm.ponto()"
+          class="fr mt2 f6 link dim ba b--black-20 ph3 pv2 mb2 dib white bg-black">
+          Bater ponto
+        </button>
+      </h2>
+      <ul class="list pl0 measure center">
+        <li ng-repeat="ponto in vm.usuario.pontos"
+          ng-class="{red: !ponto.saida}"
+          class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30">
+
+          <b ng-bind="ponto.entrada | date:'shortDate'"></b><br>
+          <span ng-bind="ponto.entrada | date:'shortTime'"></span>
+          -
+          <span ng-bind="ponto.saida | date:'shortTime'"></span>
+        </li>
+      </ul>
     </div>
   </main>
   <script src="/dist/main.bundle.js"></script>
