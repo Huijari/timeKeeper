@@ -7,6 +7,10 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
 
+	public enum Profile {
+		BASIC, MANAGER;
+	};
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -14,10 +18,6 @@ public class Usuario {
 	private String login;
 
 	private String senha;
-
-	public enum Profile {
-		BASIC, MANAGER;
-	};
 
 	private Profile profile;
 
