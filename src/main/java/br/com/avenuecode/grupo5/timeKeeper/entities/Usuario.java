@@ -1,9 +1,6 @@
 package br.com.avenuecode.grupo5.timeKeeper.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -32,6 +29,9 @@ public class Usuario {
 
 	@OneToMany
 	private List<Ponto> pontos;
+
+	@OneToMany
+	private List<Solicitacao> solicitacoes;
 
 	public Usuario() {
 
@@ -100,6 +100,14 @@ public class Usuario {
 
 	public void setPontos(List<Ponto> pontos) {
 		this.pontos = pontos;
+	}
+
+	public List<Solicitacao> getSolicitacoes() {
+		return solicitacoes;
+	}
+
+	public void setSolicitacoes(List<Solicitacao> solicitacoes) {
+		this.solicitacoes = solicitacoes;
 	}
 
 }
