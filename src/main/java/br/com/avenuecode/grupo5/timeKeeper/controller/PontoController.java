@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by huijari on 6/10/17
@@ -24,12 +26,29 @@ public class PontoController {
     private PontoDao pontoDao;
 
     @PostMapping
-    public Ponto baterPonto(@PathVariable long usuarioId, @RequestBody Ponto ponto) {
-        pontoDao.save(ponto);
+    public Ponto baterPonto(@PathVariable long usuarioId) {
+        Ponto ponto;
+
         Usuario usuario = usuarioDao.get(usuarioId);
-        usuario.getPontos().add(ponto);
-        usuarioDao.update(usuario);
+        if (usuario.getPontos().isEmpty()) {
+            ponto = new Ponto();
+            ponto.setEntrada(Calendar.getInstance());
+            usuario.getPontos().add(ponto);
+        } else {
+            Ponto ultimo = usuario.getPontos().get(usuario.getPontos().size() - 1);
+            if (ultimo.getSaida() != null) {
+                ponto = new Ponto();
+                ponto.setEntrada(Calendar.getInstance());
+                usuario.getPontos().add(ponto);
+            } else {
+                ponto = ultimo;
+                ponto.setSaida(Calendar.getInstance());
+            }
+        }
+
+        pontoDao.save(ponto);
+        usuarioDao.save(usuario);
+
         return ponto;
     }
-
 }
