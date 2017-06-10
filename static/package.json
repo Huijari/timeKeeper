@@ -1,0 +1,23 @@
+{
+  "name": "time-keeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack-dev-server --hot",
+    "test": "false"
+  },
+  "author": "",
+  "license": "ISC"
+}
