@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import br.com.avenuecode.grupo5.timeKeeper.daos.UsuarioDao;
 import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RestController
 @RequestMapping("/usuario")
 @Transactional
@@ -22,7 +25,7 @@ public class UsuarioController {
 	private UsuarioDao usuarioDAO;
 
 	@PostMapping
-	public Usuario save(@Valid Usuario usuario, BindingResult bindingResult) {
+	public Usuario save(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
 		usuarioDAO.save(usuario);
 		return usuario;
 	}
@@ -43,4 +46,12 @@ public class UsuarioController {
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		}
 	}
+
+
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Usuario> listarTodos() {
+        return usuarioDAO.list();
+    }
 }

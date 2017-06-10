@@ -1,13 +1,13 @@
 package br.com.avenuecode.grupo5.timeKeeper.daos;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
 import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
+
+import java.util.List;
 
 @Repository
 public class UsuarioDao
@@ -29,5 +29,9 @@ public class UsuarioDao
 
    public Usuario get(Integer id){
       return manager.find(Usuario.class, id);
+   }
+
+   public List<Usuario> list() {
+      return manager.createQuery("FROM Usuario").getResultList();
    }
 }
