@@ -40,6 +40,9 @@ function mainController($interval, $http) {
 }
 
 function adjustDates(usuario) {
+  if (usuario.pontos === null)
+    return usuario
+
   usuario.pontos = usuario.pontos.map(ponto => {
     ponto.entrada = new Date(ponto.entrada)
     if (ponto.saida !== null)
