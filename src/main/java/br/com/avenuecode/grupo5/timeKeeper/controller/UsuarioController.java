@@ -1,19 +1,15 @@
 package br.com.avenuecode.grupo5.timeKeeper.controller;
 
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-
+import br.com.avenuecode.grupo5.timeKeeper.daos.UsuarioDao;
+import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.avenuecode.grupo5.timeKeeper.daos.UsuarioDao;
-import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
-
-import java.util.Arrays;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
