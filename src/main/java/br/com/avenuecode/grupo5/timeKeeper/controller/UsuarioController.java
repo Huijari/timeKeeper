@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/usuario")
 @Transactional
+@CrossOrigin("http://localhost:8081")
 public class UsuarioController {
 
 	@Autowired
