@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import sun.misc.Request;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/usuario")
 @Transactional
+@CrossOrigin("http://localhost:8081")
 public class UsuarioController {
 
 	@Autowired
@@ -48,4 +50,16 @@ public class UsuarioController {
     public List<Usuario> listarTodos() {
         return usuarioDAO.list();
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+	public Usuario login(@RequestBody Usuario login) {
+		Usuario usuario = usuarioDAO.getByLogin(login.getLogin());
+		if (usuario == null) {
+			usuario = new Usuario();
+			usuario.setLogin(login.getLogin());
+			usuario.setProfile(Usuario.Profile.BASIC);
+			usuarioDAO.save(usuario);
+		}
+		return usuario;
+	}
 }
