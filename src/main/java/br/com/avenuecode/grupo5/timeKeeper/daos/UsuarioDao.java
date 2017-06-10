@@ -27,7 +27,7 @@ public class UsuarioDao
       manager.merge(usuario);
    }
 
-   public Usuario get(Integer id){
+   public Usuario get(long id){
       return manager.find(Usuario.class, id);
    }
 

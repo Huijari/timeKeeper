@@ -3,6 +3,8 @@ package br.com.avenuecode.grupo5.timeKeeper.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Usuario {
@@ -20,6 +22,9 @@ public class Usuario {
 	};
 
 	private Profile profile;
+
+	@OneToMany
+	private List<Ponto> pontos;
 
 	public Usuario() {
 
@@ -61,6 +66,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<Ponto> getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(List<Ponto> pontos) {
+		this.pontos = pontos;
 	}
 
 }

@@ -47,8 +47,6 @@ public class UsuarioController {
 		}
 	}
 
-
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public List<Usuario> listarTodos() {
