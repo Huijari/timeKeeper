@@ -17,8 +17,6 @@ public class UsuarioController {
 	@RequestMapping(path = "/usuario")
 	public Usuario update(@RequestParam(value="usuario") Usuario usuario){
 		return usuario;
-		
-		
 	}
 
 }
