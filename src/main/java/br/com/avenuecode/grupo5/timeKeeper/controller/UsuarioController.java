@@ -29,17 +29,17 @@ public class UsuarioController {
 	}
 
 	@PutMapping(path = "/{id}")
-	public Usuario update(@PathVariable("id") Integer id, @Valid Usuario usuario, BindingResult bindingResult) {
+	public Usuario update(@PathVariable("id") long id, @Valid Usuario usuario, BindingResult bindingResult) {
 		usuarioDAO.update(usuario);
 		return usuario;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Usuario> listar(@PathVariable("id") Integer id) {
+	public ResponseEntity<Usuario> listar(@PathVariable("id") long id) {
 		Usuario usuario = usuarioDAO.get(id);
 
 		if (usuario == null) {
-			return new ResponseEntity<>(HttpStatus.FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		}

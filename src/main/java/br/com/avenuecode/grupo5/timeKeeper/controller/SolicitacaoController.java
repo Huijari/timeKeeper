@@ -5,12 +5,14 @@ import br.com.avenuecode.grupo5.timeKeeper.daos.UsuarioDao;
 import br.com.avenuecode.grupo5.timeKeeper.entities.Solicitacao;
 import br.com.avenuecode.grupo5.timeKeeper.entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Created by xa0 on 10/06/17.
@@ -41,5 +43,17 @@ public class SolicitacaoController {
     public Solicitacao solicitacao(@PathVariable("id") Integer id, @Valid Solicitacao solicitacao, BindingResult bindingResult){
         solicitacaoDao.update(solicitacao);
         return solicitacao;
+    }
+
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<Solicitacao>> listar(@PathVariable("id") long id) {
+        List<Solicitacao> solicitacoes = usuarioDao.get(id).getSolicitacoes();
+
+        if (solicitacoes == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<List<Solicitacao>>(solicitacoes, HttpStatus.OK);
+        }
     }
 }
