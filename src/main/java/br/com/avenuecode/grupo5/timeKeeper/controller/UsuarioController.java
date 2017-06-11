@@ -58,6 +58,7 @@ public class UsuarioController {
 			usuario = new Usuario();
 			usuario.setLogin(login.getLogin());
 			usuario.setProfile(Usuario.Profile.BASIC);
+			usuario.setJornadaDiaria(8);
 			usuarioDAO.save(usuario);
 		}
 		return usuario;

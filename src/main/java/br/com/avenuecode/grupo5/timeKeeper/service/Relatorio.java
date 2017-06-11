@@ -41,4 +41,60 @@ public class Relatorio {
 
         return media;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getHorasDeTrabalho() {
+        return horasDeTrabalho;
+    }
+
+    public void setHorasDeTrabalho(int horasDeTrabalho) {
+        this.horasDeTrabalho = horasDeTrabalho;
+    }
+
+    public double getMediaDeHoras() {
+        return mediaDeHoras;
+    }
+
+    public void setMediaDeHoras(double mediaDeHoras) {
+        this.mediaDeHoras = mediaDeHoras;
+    }
+
+    public long getSolicitacoesFalta() {
+        return solicitacoesFalta;
+    }
+
+    public void setSolicitacoesFalta(long solicitacoesFalta) {
+        this.solicitacoesFalta = solicitacoesFalta;
+    }
+
+    public long getSolicitacoesFerias() {
+        return solicitacoesFerias;
+    }
+
+    public void setSolicitacoesFerias(long solicitacoesFerias) {
+        this.solicitacoesFerias = solicitacoesFerias;
+    }
+
+    public long getSolicitacoesAtestado() {
+        return solicitacoesAtestado;
+    }
+
+    public void setSolicitacoesAtestado(long solicitacoesAtestado) {
+        this.solicitacoesAtestado = solicitacoesAtestado;
+    }
+
+    public long getTotalSolicitacoes() {
+        return totalSolicitacoes;
+    }
+
+    public void setTotalSolicitacoes(long totalSolicitacoes) {
+        this.totalSolicitacoes = totalSolicitacoes;
+    }
 }
